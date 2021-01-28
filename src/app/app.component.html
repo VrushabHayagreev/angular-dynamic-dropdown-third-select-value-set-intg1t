@@ -1,0 +1,43 @@
+<select name="project" [(ngModel)]="selectedProject" (change)="changeProject($event)">
+  <option *ngFor="let opt of projects" [value]="opt.value">{{opt.value}}</option>
+</select>
+<br><br>
+<select name="project" [(ngModel)]="selectedProperty" (change)="changePropertyCode($event)">
+  <option *ngFor="let opt of propertyCode" [value]="opt.value">{{opt.value}}</option>
+</select>
+<br><br>
+<!-- In below select box, I need to have Dynamic generation of options in select box based on selection of both changeProject and changePropertyCode option value. -->
+<select name="project" (change)="changeProductCode($event)">
+  <option *ngFor="let opt of product" [value]="opt.key">{{opt.value}}</option>
+ <!-- Dynamic list of options based on above two select box values -->
+</select>
+
+<!-- Eg: -->
+
+<!-- If i have choosen Project Two and PC103 both select boxes respectively, then i need to have the dropdown as, -->
+<!-- 
+  product = [
+    {
+      key: 123, value: "PC103PROD123",
+    },
+    {
+      key: 456, value: "PC103PROD456",
+    },
+    {
+      key: 789, value: "PC103PROD789",
+    }
+  ] -->
+
+  <!-- If i have choosen Project Three and PC102 both select boxes respectively, then i need to have the dropdown as, -->
+<!-- 
+  product = [
+    {
+      key: 123, value: "PC102PROD123",
+    },
+    {
+      key: 456, value: "PC102PROD456",
+    },
+    {
+      key: 789, value: "PC102PROD789",
+    }
+  ] -->
